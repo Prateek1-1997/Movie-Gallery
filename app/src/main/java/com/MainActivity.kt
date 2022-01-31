@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.BlankFragment
 import com.velmurugan.mvvmretrofitrecyclerviewkotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,21 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        viewModel = ViewModelProvider(this, MyViewModelFactory(MainRepository(retrofitService))).get(MainViewModel::class.java)
-
-        binding.recyclerview.adapter = adapter
-
-        viewModel.movieList.observe(this, Observer {
-            Log.d(TAG, "onCreate: $it")
-            adapter.setMovieList(it)
-
-
-        })
-
-        viewModel.errorMessage.observe(this, Observer {
-
-        })
-        viewModel.getAllMovies()
+            supportFragmentManager.beginTransaction().replace(R.id.homeFragment, BlankFragment.newInstance()).commit()
     }
 }
