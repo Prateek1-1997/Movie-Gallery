@@ -20,7 +20,7 @@ interface RetrofitService {
 
             if (retrofitService == null) {
                 val retrofit = Retrofit.Builder()
-                    .baseUrl("https://api.themoviedb.org/3/movie/")
+                    .baseUrl("https://howtodoandroid.com/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                 retrofitService = retrofit.create(RetrofitService::class.java)

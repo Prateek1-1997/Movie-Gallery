@@ -1,6 +1,7 @@
 package com
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -81,9 +82,8 @@ class BlankFragment : Fragment() {
     }
 
     lateinit var data : ArrayList<*>
-    private fun adapterListSubmit(resultResponse: List<Movie>?){
+    private fun adapterListSubmit(resultResponse: List<Movie>?) {
         data = resultResponse as ArrayList<*>
         adapter.submitList(data)
     }
-
 }

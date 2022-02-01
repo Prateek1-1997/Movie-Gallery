@@ -1,5 +1,6 @@
 package com.velmurugan.mvvmretrofitrecyclerviewkotlin
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -7,16 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.MovieListDiffCallback
 import com.MovieViewholder
 import com.bumptech.glide.Glide
-import com.velmurugan.mvvmretrofitrecyclerviewkotlin.databinding.AdapterMovieBinding
+import java.lang.Exception
 
 class MainAdapter: ListAdapter<Any,RecyclerView.ViewHolder>(MovieListDiffCallback()) {
 
-    var movies = mutableListOf<Movie>()
 
-    fun setMovieList(movies: List<Movie>) {
-        this.movies = movies.toMutableList()
-        notifyDataSetChanged()
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewholder {
         var viewHolder : RecyclerView.ViewHolder? = null
@@ -31,13 +27,13 @@ class MainAdapter: ListAdapter<Any,RecyclerView.ViewHolder>(MovieListDiffCallbac
         super.getItemViewType(position)
         val item = getItem(position)
         var itemViewType = 0
-        when(item){
+        when(item) {
             is Movie -> itemViewType = R.layout.adapter_movie
         }
         return itemViewType
-    }
-    override fun getItemCount(): Int {
-        return movies.size
+            return R.layout.adapter_movie
+
+
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
